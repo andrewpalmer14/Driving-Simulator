@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "/Users/andrewpalmer/Desktop/Semester 1/ENGR 130 Intro to Engineering Apps/Driving Simulator/Assembly-CSharp-Editor-firstpass.csproj",
+  "TargetFramework": "v3.5",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

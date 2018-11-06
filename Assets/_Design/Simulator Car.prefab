@@ -2057,8 +2057,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1222038082073902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.087, y: 0.54, z: -89}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 219.1, y: 0.53999996, z: -204.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4657905832385744}
@@ -2067,7 +2067,7 @@ Transform:
   - {fileID: 4531775833904476}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4701051858354136
 Transform:
   m_ObjectHideFlags: 1
@@ -4327,6 +4327,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96468c245ae8e0d4f8f1c7a7b8b0542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testTriggerGameObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  feedbackStrings:
+  - Turn Right.
+  - Continue Straight.
+  - Turn Left.
+  - Continue Straight.
+  speedLimits: 14000000190000001e00000023000000
+  checkPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rallyQueueStrings:
+  - Turn Right.
+  - Continue Straight.
+  - Turn Left.
+  - Continue Straight.
+  speedText: {fileID: 0}
+  rallyQueueText: {fileID: 0}
+  feedBackText: {fileID: 0}
+  speedLimitText: {fileID: 0}
+  needle: {fileID: 0}
+  shifter: {fileID: 0}
+  drive: {fileID: 21300000, guid: 5181efdd9dd4c4140aa9c2b0c0bec366, type: 3}
+  reverse: {fileID: 21300000, guid: fe5caf80fcae16c4aa40deb8d134eb96, type: 3}
+  testFailures: 00000000000000000000000000000000
+  passedTests: 00000000
 --- !u!114 &114811012226546498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4349,19 +4380,19 @@ MonoBehaviour:
   - {fileID: 1147617701245826}
   - {fileID: 1779837366335268}
   - {fileID: 1856537839231730}
-  m_CentreOfMassOffset: {x: 0, y: 0, z: 0}
-  m_MaximumSteerAngle: 25
+  m_CentreOfMassOffset: {x: 0.07, y: 0, z: 0}
+  m_MaximumSteerAngle: 20
   m_SteerHelper: 0.644
   m_TractionControl: 1
-  m_FullTorqueOverAllWheels: 2500
-  m_ReverseTorque: 500
+  m_FullTorqueOverAllWheels: 8000
+  m_ReverseTorque: 1000
   m_MaxHandbrakeTorque: 100000000
   m_Downforce: 100
   m_SpeedType: 0
-  m_Topspeed: 40
+  m_Topspeed: 60
   m_RevRangeBoundary: 1
   m_SlipLimit: 0.3
-  m_BrakeTorque: 20000
+  m_BrakeTorque: 50000
 --- !u!124 &124282730878523198
 Behaviour:
   m_ObjectHideFlags: 1
