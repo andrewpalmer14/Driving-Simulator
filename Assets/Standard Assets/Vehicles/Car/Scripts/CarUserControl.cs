@@ -55,20 +55,23 @@ namespace UnityStandardAssets.Vehicles.Car
             this.transform.position = checkPoints[testIndex].position;
         }
 
+        private void Update() {
+            if (Input.GetKeyDown(KeyCode.R) || CrossPlatformInputManager.GetButtonDown("Reverse")) {
+                m_Car.SwitchReverseBool();
+            }
+
+            if (m_Car.GetInReverse()) {
+                shifter.sprite = reverse;
+            } else {
+                shifter.sprite = drive;
+            }
+        }
+
 
         private void FixedUpdate()
         {
 
-            if (Input.GetKeyDown(KeyCode.R)) {
-                m_Car.SwitchReverseBool();
-                if (m_Car.GetInReverse()) {
-                    shifter.sprite = reverse;
-                } else {
-                    shifter.sprite = drive;
-                }
-            }
-
-            float rotationDegree = 95.0f - m_Car.CurrentSpeed * 2.38f;
+            float rotationDegree = (95.0f - m_Car.CurrentSpeed * 2.38f);
 
             needle.transform.rotation = Quaternion.Euler(0, 0, rotationDegree);
             if (Math.Round(m_Car.CurrentSpeed) > speedLimits[testIndex]) {
@@ -89,7 +92,7 @@ namespace UnityStandardAssets.Vehicles.Car
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 #if !MOBILE_INPUT
-            float handbrake = CrossPlatformInputManager.GetAxis("Jump");
+            float handbrake = CrossPlatformInputManager.GetAxis("Brake");
             m_Car.Move(h, v, v, handbrake);
             
 #else

@@ -167,7 +167,7 @@ namespace UnityStandardAssets.Vehicles.Car
             //Assuming that wheels 2 and 3 are the rear wheels.
             if (handbrake > 0f)
             {
-                var hbTorque = handbrake*m_MaxHandbrakeTorque;
+                var hbTorque = handbrake*m_MaxHandbrakeTorque * 5;
                 m_WheelColliders[2].brakeTorque = hbTorque;
                 m_WheelColliders[3].brakeTorque = hbTorque;
             }
@@ -206,13 +206,19 @@ namespace UnityStandardAssets.Vehicles.Car
         private void ApplyDrive(float accel, float footbrake)
         {
                 float thrustTorque;
+                float reverseTorque;
                 switch (m_CarDriveType)
                 {
                     case CarDriveType.FourWheelDrive:
                         thrustTorque = accel * (m_CurrentTorque / 4f);
+                        reverseTorque = accel * (m_ReverseTorque / 4f);
                         for (int i = 0; i < 4; i++)
                         {
-                            m_WheelColliders[i].motorTorque = thrustTorque;
+                            if (!GetInReverse()) {
+                                m_WheelColliders[i].motorTorque = thrustTorque;
+                            } else {
+                                m_WheelColliders[i].motorTorque = -reverseTorque;
+                            }
                         }
                         break;
 
@@ -236,10 +242,10 @@ namespace UnityStandardAssets.Vehicles.Car
                 }
                 else if (footbrake > 0)
                 {
-                    m_WheelColliders[i].brakeTorque = 0f;
+                    /* m_WheelColliders[i].brakeTorque = 0f;
                     if (inReverse) {
                         m_WheelColliders[i].motorTorque = -m_ReverseTorque*footbrake;
-                    }
+                    }*/
                 }
             }
         }
