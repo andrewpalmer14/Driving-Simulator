@@ -15,10 +15,6 @@ namespace UnityStandardAssets.Vehicles.Car
         public Transform[] checkPoints;
         public String[] rallyQueueStrings;
         private int testIndex = 0;
-        public Text speedText;
-        public Text rallyQueueText;
-        public Text feedBackText;
-        public Text speedLimitText;
 
         public Image needle;
         public Image shifter;
@@ -34,8 +30,6 @@ namespace UnityStandardAssets.Vehicles.Car
                 trigger.SetActive(false);
             }
             testTriggerGameObjects[testIndex].SetActive(true);
-            rallyQueueText.text = "Right";
-            speedLimitText.text = "Speed Limit: " + speedLimits[testIndex];
             // get the car controller
             m_Car = GetComponent<CarController>();
         }
@@ -45,8 +39,6 @@ namespace UnityStandardAssets.Vehicles.Car
             passedTests[testIndex] = true;
             testTriggerGameObjects[testIndex].SetActive(false);
             testIndex++;
-            rallyQueueText.text = rallyQueueStrings[testIndex];
-            speedLimitText.text = "Speed Limit: " + speedLimits[testIndex];
             testTriggerGameObjects[testIndex].SetActive(true);
         }
 
@@ -75,11 +67,8 @@ namespace UnityStandardAssets.Vehicles.Car
 
             needle.transform.rotation = Quaternion.Euler(0, 0, rotationDegree);
             if (Math.Round(m_Car.CurrentSpeed) > speedLimits[testIndex]) {
-                feedBackText.text = "Slow Down!";
             } else {
-                feedBackText.text = feedbackStrings[testIndex];
             }
-            speedText.text = Math.Round(m_Car.CurrentSpeed) + " MPH";
             if (m_Car.GetInReverse()) {
                 //Debug.Log("in reverse");
                 //Debug.Log("Speed: " + m_Car.CurrentSpeed + " Accel: " + m_Car.AccelInput + " Break: " + m_Car.BrakeInput);

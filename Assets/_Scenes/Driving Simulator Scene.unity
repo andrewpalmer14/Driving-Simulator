@@ -9374,8 +9374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f4c9dd0583d6e84a908570e99049740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trafficLight: 0
-  green: 0
+  trafficLight: 1
+  green: 1
   red: 0
   yellow: 0
   anim: {fileID: 0}
@@ -14838,7 +14838,7 @@ Prefab:
     - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
         type: 2}
       propertyPath: m_SteerHelper
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
         type: 2}
