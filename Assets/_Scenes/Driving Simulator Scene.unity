@@ -4726,6 +4726,8 @@ GameObject:
   - component: {fileID: 521550549}
   - component: {fileID: 521550553}
   - component: {fileID: 521550552}
+  - component: {fileID: 521550550}
+  - component: {fileID: 521550551}
   m_Layer: 5
   m_Name: RallyQueue
   m_TagString: Untagged
@@ -4752,6 +4754,55 @@ RectTransform:
   m_AnchoredPosition: {x: 75, y: -85}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &521550550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 521550548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9f6b77f1bbaa24aa1456a506443ece, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rally: 0
+  stop: 0
+  backward: 0
+  forward: 0
+  leftTurn: 0
+  rightTurn: 0
+  cautionRight: 0
+  cautionLeft: 0
+  speedlimit: 0
+  anim: {fileID: 0}
+  curSprite: {fileID: 21300000, guid: e8cf5add727b70745851be8332b5be98, type: 3}
+  rallySprites:
+  - {fileID: 21300000, guid: 4843d4806cdcd5c46953c51c108deae3, type: 3}
+  - {fileID: 21300000, guid: bd77d43662b56c749a05e7625d9bbd54, type: 3}
+  - {fileID: 21300000, guid: 3a8b37dd93c8e7b4491de9852ee9967f, type: 3}
+  - {fileID: 21300000, guid: 18d6c1c9f281a534aa1c4c5e89d754d0, type: 3}
+  - {fileID: 21300000, guid: 7d5d4058b707455439e486418136452d, type: 3}
+  - {fileID: 21300000, guid: 4a1685af3e1bed04ea00b77b64bd0689, type: 3}
+  - {fileID: 21300000, guid: e8cf5add727b70745851be8332b5be98, type: 3}
+  - {fileID: 21300000, guid: b3f4c8a0028aad64e9fd74816b2fd581, type: 3}
+--- !u!95 &521550551
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 521550548}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 580e06b36c3f166498ce8c69fbcd8a38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &521550552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8173,7 +8224,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 924476992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -9266,6 +9317,8 @@ GameObject:
   - component: {fileID: 1056695987}
   - component: {fileID: 1056695991}
   - component: {fileID: 1056695990}
+  - component: {fileID: 1056695988}
+  - component: {fileID: 1056695989}
   m_Layer: 5
   m_Name: TrafficLight
   m_TagString: Untagged
@@ -9292,6 +9345,45 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1056695988
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056695986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae0079544c8315a47a04d0719cc9000f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1056695989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1056695986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4c9dd0583d6e84a908570e99049740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trafficLight: 0
+  green: 0
+  red: 0
+  yellow: 0
+  anim: {fileID: 0}
+  curSprite: {fileID: 0}
+  lightSprites:
+  - {fileID: 21300000, guid: fe6d996465646c04190101350a0b6cf8, type: 3}
+  - {fileID: 21300000, guid: c740e767dea9b9845839e9fb291c2a6c, type: 3}
+  - {fileID: 21300000, guid: 434729984f86c004ba9e5e091aa15b05, type: 3}
 --- !u!114 &1056695990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14643,7 +14735,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4698838917215996, guid: 1c18f32f68de945919f7cc63fc24b2b7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 219.1
+      value: 230.4
       objectReference: {fileID: 0}
     - target: {fileID: 4698838917215996, guid: 1c18f32f68de945919f7cc63fc24b2b7, type: 2}
       propertyPath: m_LocalPosition.y
@@ -14743,6 +14835,16 @@ Prefab:
       propertyPath: shifter
       value: 
       objectReference: {fileID: 1028300507}
+    - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_SteerHelper
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_MaxHandbrakeTorque
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c18f32f68de945919f7cc63fc24b2b7, type: 2}
   m_IsPrefabAsset: 0
@@ -17731,6 +17833,8 @@ GameObject:
   - component: {fileID: 2077911946}
   - component: {fileID: 2077911950}
   - component: {fileID: 2077911949}
+  - component: {fileID: 2077911948}
+  - component: {fileID: 2077911947}
   m_Layer: 5
   m_Name: SpeedLimit
   m_TagString: Untagged
@@ -17757,6 +17861,45 @@ RectTransform:
   m_AnchoredPosition: {x: -75, y: -85}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2077911947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077911945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d90bb42b2dd2b947a22e45f7bcc3bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limit: 0
+  sl35: 0
+  sl20: 0
+  sl50: 0
+  anim: {fileID: 0}
+  curSprite: {fileID: 0}
+  limitSprites:
+  - {fileID: 21300000, guid: bbd97147d54e2984a8383324d9b4e5e0, type: 3}
+  - {fileID: 21300000, guid: 13bbc52d1113a46409f76e4625605458, type: 3}
+  - {fileID: 21300000, guid: 110132ffffa37b24eacd9dbad3dd58fe, type: 3}
+--- !u!95 &2077911948
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077911945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e54db0ccebdd7e49b730ea60104ed10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2077911949
 MonoBehaviour:
   m_ObjectHideFlags: 0
