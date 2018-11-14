@@ -66,10 +66,13 @@
     <Compile Include="Assets\_Scripts\TriggerTest.cs" />
     <Compile Include="Assets\_Scripts\TriggerTestPassed.cs" />
     <Compile Include="Assets\Drive.cs" />
+    <Compile Include="Assets\FailTrigger.cs" />
     <Compile Include="Assets\LightAnimation.cs" />
     <Compile Include="Assets\LimitAnimation.cs" />
+    <Compile Include="Assets\PassTrigger.cs" />
     <Compile Include="Assets\RallyAnimation.cs" />
     <Compile Include="Assets\StartScript.cs" />
+    <Compile Include="Assets\UpdateTrigger.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

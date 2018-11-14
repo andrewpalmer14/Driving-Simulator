@@ -168,7 +168,7 @@ namespace UnityStandardAssets.Vehicles.Car
             if (handbrake > 0f)
             {
                 float hbTorque = ((handbrake)*(1 + handbrake)*(2 + handbrake)*m_MaxHandbrakeTorque);
-                Debug.Log(1 + handbrake);
+                //Debug.Log(1 + handbrake);
                // m_WheelColliders[0].brakeTorque = hbTorque;
                // m_WheelColliders[1].brakeTorque = hbTorque;
                 m_WheelColliders[2].brakeTorque = hbTorque + 500;
