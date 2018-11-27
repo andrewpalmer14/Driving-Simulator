@@ -13,7 +13,7 @@ public class LightAnimation : MonoBehaviour {
     public Sprite curSprite;
     public Sprite[] lightSprites;
 
-    private Image _lightImage;
+    public Image _lightImage;
     
     void Start () {
         anim = GetComponent<Animator>();

@@ -8,6 +8,11 @@ public class StopLight : MonoBehaviour {
 	public Material yellow;
 	public Material red;
 
+    public LightAnimation lightQueue;
+    public Sprite greenSprite;
+    public Sprite yellowSprite;
+    public Sprite redSprite;
+
 	private Shader on;
 
 	private Shader off;
@@ -39,7 +44,27 @@ public class StopLight : MonoBehaviour {
 	void Update () {
 		time += Time.deltaTime;
 		checkLight();
-	}
+        if (lightQueue != null)
+        {
+            if (currentLight == "GREEN")
+            {
+
+                lightQueue._lightImage.sprite = greenSprite;
+            }
+            else if (currentLight == "YELLOW")
+            {
+
+
+                lightQueue._lightImage.sprite = yellowSprite;
+            }
+            else if (currentLight == "RED")
+            {
+
+                lightQueue._lightImage.sprite = redSprite;
+            }
+        }
+
+    }
 
 	void checkLight() {
 		switch (currentLight) {
@@ -90,4 +115,9 @@ public class StopLight : MonoBehaviour {
 		yellow.shader = yellowShader;
 		red.shader = redShader;
 	}
+
+    public string getCurrentLight()
+    {
+        return currentLight;
+    }
 }

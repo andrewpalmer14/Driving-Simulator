@@ -18,7 +18,7 @@ public class RallyAnimation : MonoBehaviour {
     public Sprite curSprite;
     public Sprite[] rallySprites;
 
-    private Image _rallyImage;
+    public Image _rallyImage;
 	
 	void Start () {
         anim = GetComponent<Animator>();
