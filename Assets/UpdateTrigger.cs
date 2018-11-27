@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UpdateTrigger : MonoBehaviour {
 
@@ -11,6 +12,9 @@ public class UpdateTrigger : MonoBehaviour {
     public GameObject passTrigger;
     public GameObject failTrigger;
     public bool stopLightTest;
+
+    public ReturnToLane returnToLaneTriggerActive;
+    public ReturnToLane returnToLaneTriggerDisable;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +29,14 @@ public class UpdateTrigger : MonoBehaviour {
     {
         if (other.ToString() == "Simulator Car (UnityEngine.BoxCollider)")
         {
+            if (returnToLaneTriggerDisable != null) {
+                returnToLaneTriggerDisable.gameObject.SetActive(false);
+            }
+            if (returnToLaneTriggerActive != null) {
+                returnToLaneTriggerActive.gameObject.SetActive(true);
+            } else {
+                SceneManager.LoadScene("Score Scene");
+            }
             if (stopLightTest)
             {
                 lightQueue.trafficLight = false;
@@ -42,4 +54,6 @@ public class UpdateTrigger : MonoBehaviour {
             }
         }
     }
+
+
 }

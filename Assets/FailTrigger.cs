@@ -39,7 +39,9 @@ public class FailTrigger : MonoBehaviour
             else
             {
                 Debug.Log("Stop test failed!");
-                lightQueue.trafficLight = true;
+                if (lightQueue != null) {
+                    lightQueue.trafficLight = true;
+                }
                 this.gameObject.SetActive(false);
                 if (passTrigger != null)
                 {

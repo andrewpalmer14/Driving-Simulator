@@ -63,13 +63,15 @@ public class PassTrigger : MonoBehaviour {
     {
         if (other.ToString() == "Simulator Car (UnityEngine.BoxCollider)")
         {
-            if (stopLight.getCurrentLight() != "RED")
-            {
+            if (lightQueue != null) {
+                if (stopLight.getCurrentLight() != "RED")
+                {
 
-                Debug.Log("Successful Traffic Light Sequence!");
-                lightQueue.trafficLight = true;
-                this.gameObject.SetActive(false);
-                failTrigger.SetActive(false);
+                    Debug.Log("Successful Traffic Light Sequence!");
+                    lightQueue.trafficLight = true;
+                    this.gameObject.SetActive(false);
+                    failTrigger.SetActive(false);
+                }
             }
         } /*else
         {

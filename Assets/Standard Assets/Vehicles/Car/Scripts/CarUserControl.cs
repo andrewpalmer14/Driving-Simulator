@@ -26,10 +26,10 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private void Awake()
         {
-            foreach (GameObject trigger in testTriggerGameObjects) {
+            /* foreach (GameObject trigger in testTriggerGameObjects) {
                 trigger.SetActive(false);
             }
-            testTriggerGameObjects[testIndex].SetActive(true);
+            testTriggerGameObjects[testIndex].SetActive(true);*/
             // get the car controller
             m_Car = GetComponent<CarController>();
         }
