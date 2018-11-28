@@ -53,20 +53,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\_Scripts\BuildingCollisionHandler.cs" />
+     <Compile Include="Assets\_Scripts\Drive.cs" />
+     <Compile Include="Assets\_Scripts\FailTrigger.cs" />
+     <Compile Include="Assets\_Scripts\LightAnimation.cs" />
+     <Compile Include="Assets\_Scripts\LimitAnimation.cs" />
      <Compile Include="Assets\_Scripts\MySceneManager.cs" />
+     <Compile Include="Assets\_Scripts\PassTrigger.cs" />
+     <Compile Include="Assets\_Scripts\RallyAnimation.cs" />
+     <Compile Include="Assets\_Scripts\ReturnToLane.cs" />
+     <Compile Include="Assets\_Scripts\ScoreCard.cs" />
+     <Compile Include="Assets\_Scripts\SetResults.cs" />
+     <Compile Include="Assets\_Scripts\StartScript.cs" />
      <Compile Include="Assets\_Scripts\StopLight.cs" />
      <Compile Include="Assets\_Scripts\TriggerTest.cs" />
      <Compile Include="Assets\_Scripts\TriggerTestPassed.cs" />
-     <Compile Include="Assets\BuildingCollisionHandler.cs" />
-     <Compile Include="Assets\Drive.cs" />
-     <Compile Include="Assets\FailTrigger.cs" />
-     <Compile Include="Assets\LightAnimation.cs" />
-     <Compile Include="Assets\LimitAnimation.cs" />
-     <Compile Include="Assets\PassTrigger.cs" />
-     <Compile Include="Assets\RallyAnimation.cs" />
-     <Compile Include="Assets\ReturnToLane.cs" />
-     <Compile Include="Assets\StartScript.cs" />
-     <Compile Include="Assets\UpdateTrigger.cs" />
+     <Compile Include="Assets\_Scripts\UpdateTrigger.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
