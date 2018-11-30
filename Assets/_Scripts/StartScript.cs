@@ -14,7 +14,7 @@ public class StartScript : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene("Driving Simulator Scene");
+            SceneManager.LoadScene("Menu Scene");
         }
 	}
 }
