@@ -48,7 +48,8 @@ namespace UnityStandardAssets.Vehicles.Car
         }
 
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.R) || CrossPlatformInputManager.GetButtonDown("Reverse")) {
+            if (Input.GetKeyDown(KeyCode.R) || CrossPlatformInputManager.GetButtonDown("Reverse"))
+            {//m_Car.CurrentSpeed == 0f && 
                 m_Car.SwitchReverseBool();
             }
 

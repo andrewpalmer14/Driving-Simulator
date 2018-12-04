@@ -2018,7 +2018,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4169983903537070, guid: 5a760ff159dab1f45a917cb73f9ceb03, type: 2}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 65765627707978166, guid: 5a760ff159dab1f45a917cb73f9ceb03,
         type: 2}
@@ -9277,7 +9277,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4942243433605740, guid: 8dca6652d4a69d04b9cecde06ac6ddf7, type: 2}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4942243433605740, guid: 8dca6652d4a69d04b9cecde06ac6ddf7, type: 2}
       propertyPath: m_LocalScale.x
@@ -10241,7 +10241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4098580027920024, guid: ba9a28fd3bfa90a4eb50a1dcc18dd5bc, type: 2}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 4098580027920024, guid: ba9a28fd3bfa90a4eb50a1dcc18dd5bc, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14965,7 +14965,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4942243433605740, guid: 8dca6652d4a69d04b9cecde06ac6ddf7, type: 2}
       propertyPath: m_RootOrder
-      value: 28
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 4942243433605740, guid: 8dca6652d4a69d04b9cecde06ac6ddf7, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -19481,7 +19481,7 @@ Prefab:
     - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
         type: 2}
       propertyPath: m_SteerHelper
-      value: 1
+      value: 0.531
       objectReference: {fileID: 0}
     - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
         type: 2}
@@ -19491,6 +19491,46 @@ Prefab:
     - target: {fileID: 4698838917215996, guid: 1c18f32f68de945919f7cc63fc24b2b7, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_MaximumSteerAngle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_BrakeTorque
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_Downforce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_FullTorqueOverAllWheels
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 54180278819657262, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114811012226546498, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_CarDriveType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54180278819657262, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54180278819657262, guid: 1c18f32f68de945919f7cc63fc24b2b7,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c18f32f68de945919f7cc63fc24b2b7, type: 2}

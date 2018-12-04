@@ -169,8 +169,8 @@ namespace UnityStandardAssets.Vehicles.Car
             {
                 float hbTorque = ((handbrake)*(1 + handbrake)*(2 + handbrake)*m_MaxHandbrakeTorque);
                 //Debug.Log(1 + handbrake);
-               // m_WheelColliders[0].brakeTorque = hbTorque;
-               // m_WheelColliders[1].brakeTorque = hbTorque;
+                m_WheelColliders[0].brakeTorque = hbTorque;
+                m_WheelColliders[1].brakeTorque = hbTorque;
                 m_WheelColliders[2].brakeTorque = hbTorque + 500;
                 m_WheelColliders[3].brakeTorque = hbTorque + 500;
             }
@@ -243,12 +243,13 @@ namespace UnityStandardAssets.Vehicles.Car
                 {
                     m_WheelColliders[i].brakeTorque = m_BrakeTorque*footbrake;
                 }
-                else if (footbrake > 0)
+                else if (footbrake >= 0)
                 {
-                    /* m_WheelColliders[i].brakeTorque = 0f;
-                    if (inReverse) {
-                        m_WheelColliders[i].motorTorque = -m_ReverseTorque*footbrake;
-                    }*/
+                    m_WheelColliders[i].brakeTorque = 0f;
+                    if (inReverse)
+                    {
+                        m_WheelColliders[i].motorTorque = -m_ReverseTorque * footbrake;
+                    }
                 }
             }
         }
