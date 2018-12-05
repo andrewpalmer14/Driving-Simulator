@@ -11,6 +11,7 @@ public class PassTrigger : MonoBehaviour {
     public GameObject failTrigger;
     public StopLight stopLight;
     private ScoreCard scoreCard;
+    private bool successfulStop = false;
 
 	// Use this for initialization
 	void Start () {
@@ -32,8 +33,12 @@ public class PassTrigger : MonoBehaviour {
                 {
                     if (Math.Round(carController.CurrentSpeed) == 0)
                     {
-                        scoreCard.SuccessfulStop();
-                        Debug.Log("Successful Stop at Light!");
+                        if (!successfulStop)
+                        {
+                            scoreCard.SuccessfulStop();
+                            successfulStop = true;
+                            Debug.Log("Successful Stop at Light!");
+                        }
                         //this.gameObject.SetActive(false);
                        // if (failTrigger != null)
                        // {

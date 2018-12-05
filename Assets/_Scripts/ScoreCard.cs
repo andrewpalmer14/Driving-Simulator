@@ -10,6 +10,7 @@ public class ScoreCard : MonoBehaviour {
 	private int unsuccessfulStops = 0;
 	private int successfulStops = 0;
 	private float timeInWrongLane = 0;
+    private float timeAboveSpeed = 0;
 
 	private bool trackFinished = false;
 
@@ -27,13 +28,18 @@ public class ScoreCard : MonoBehaviour {
 		this.timeInWrongLane += time;
 	}
 
+    public void TimeAboveSpeed(float time)
+    {
+        this.timeAboveSpeed += time;
+    }
+
 	public void SuccessfulStop() {
 		this.successfulStops++;
 	}
 
 	public void UnsuccessfulStop() {
 		this.unsuccessfulStops++;
-		this.score -= 15;
+		this.score -= 41;
 		if (this.score < 0) {
 			this.score = 0;
 		}
@@ -45,7 +51,7 @@ public class ScoreCard : MonoBehaviour {
 
 	public void UnsuccessfulLightSequence() {
 		this.unsuccessfulLightSequences++;
-		this.score -= 15;
+		this.score -= 41;
 		if (this.score < 0) {
 			this.score = 0;
 		}
@@ -61,7 +67,7 @@ public class ScoreCard : MonoBehaviour {
 
 	public int GetScore() {
 		if (trackFinished) {
-			return this.score;
+			return this.score - (Mathf.RoundToInt(this.timeInWrongLane)) - (Mathf.RoundToInt(this.timeAboveSpeed));
 		} else {
 			return 0;
 		}
@@ -75,12 +81,27 @@ public class ScoreCard : MonoBehaviour {
 		return "" + this.successfulStops + "/" + (this.unsuccessfulStops + this.successfulStops);
 	}
 
+    public int GetUnsuccessfulStops()
+    {
+        return this.unsuccessfulStops;
+    }
+
+    public int GetUnsuccessfulLightSequences()
+    {
+        return this.unsuccessfulLightSequences;
+    }
+
 	public float GetTimeInCorrectLane() {
-		return this.timeElapsed - this.timeInWrongLane;
+		return (this.timeElapsed - this.timeInWrongLane);
 	}
 
 	public float GetTimeInWrongLane() {
-		return this.timeInWrongLane;
+		return (this.timeInWrongLane);
 	}
+
+    public int GetTimeAboveSpeed()
+    {
+        return Mathf.RoundToInt(this.timeAboveSpeed);
+    }
 
 }
