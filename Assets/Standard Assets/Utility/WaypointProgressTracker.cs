@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Utility
 {
@@ -11,25 +13,35 @@ namespace UnityStandardAssets.Utility
         // This script manages the amount to look ahead along the route,
         // and keeps track of progress and laps.
 
-        [SerializeField] private WaypointCircuit circuit; // A reference to the waypoint-based route we should follow
+        [SerializeField]
+        private WaypointCircuit circuit; // A reference to the waypoint-based route we should follow
 
-        [SerializeField] private float lookAheadForTargetOffset = 5;
+        [SerializeField]
+        private float lookAheadForTargetOffset = 5;
         // The offset ahead along the route that the we will aim for
 
-        [SerializeField] private float lookAheadForTargetFactor = .1f;
+        [SerializeField]
+        private float lookAheadForTargetFactor = .1f;
         // A multiplier adding distance ahead along the route to aim for, based on current speed
 
-        [SerializeField] private float lookAheadForSpeedOffset = 10;
+        [SerializeField]
+        private float lookAheadForSpeedOffset = 10;
         // The offset ahead only the route for speed adjustments (applied as the rotation of the waypoint target transform)
 
-        [SerializeField] private float lookAheadForSpeedFactor = .2f;
+        [SerializeField]
+        private float lookAheadForSpeedFactor = .2f;
         // A multiplier adding distance ahead along the route for speed adjustments
 
-        [SerializeField] private ProgressStyle progressStyle = ProgressStyle.SmoothAlongRoute;
+        [SerializeField]
+        private ProgressStyle progressStyle = ProgressStyle.SmoothAlongRoute;
         // whether to update the position smoothly along the route (good for curved paths) or just when we reach each waypoint.
 
-        [SerializeField] private float pointToPointThreshold = 4;
+        [SerializeField]
+        private float pointToPointThreshold = 4;
         // proximity to waypoint which must be reached to switch target to next waypoint : only used in PointToPoint mode.
+
+
+
 
         public enum ProgressStyle
         {
@@ -82,6 +94,37 @@ namespace UnityStandardAssets.Utility
 
         private void Update()
         {
+            
+            float driveAxis = CrossPlatformInputManager.GetAxis("Vertical");
+            if (driveAxis < 0 && lookAheadForTargetOffset > 0.0f)
+            {
+                lookAheadForTargetOffset += (driveAxis * 0.003f);
+            }else if (driveAxis > 0 && lookAheadForTargetOffset < 1.1f)
+            {
+                lookAheadForTargetOffset += (driveAxis * 0.002f);
+            }
+            
+
+            if (Input.GetButton("Fire2") && lookAheadForTargetOffset < 1.1f)
+            {
+                Debug.Log(Input.mousePosition);
+
+                lookAheadForTargetOffset += 0.002f;
+            }
+            if (Input.GetButton("Fire1") && lookAheadForTargetOffset > 0.0f)
+            {
+                lookAheadForTargetOffset -= 0.003f;
+            }
+            else if (lookAheadForTargetOffset < 0.0f)
+            {
+                lookAheadForTargetOffset = 0.0f;
+            }
+
+            if (lookAheadForTargetOffset > 0.03f)
+            {
+                lookAheadForTargetOffset -= (lookAheadForTargetOffset * 0.0025f);
+            }
+
             if (progressStyle == ProgressStyle.SmoothAlongRoute)
             {
                 // determine the position we should currently be aiming for
@@ -89,15 +132,15 @@ namespace UnityStandardAssets.Utility
                 // we use lerp as a simple way of smoothing out the speed over time.
                 if (Time.deltaTime > 0)
                 {
-                    speed = Mathf.Lerp(speed, (lastPosition - transform.position).magnitude/Time.deltaTime,
+                    speed = Mathf.Lerp(speed, (lastPosition - transform.position).magnitude / Time.deltaTime,
                                        Time.deltaTime);
                 }
                 target.position =
-                    circuit.GetRoutePoint(progressDistance + lookAheadForTargetOffset + lookAheadForTargetFactor*speed)
+                    circuit.GetRoutePoint(progressDistance + lookAheadForTargetOffset + lookAheadForTargetFactor * speed)
                            .position;
                 target.rotation =
                     Quaternion.LookRotation(
-                        circuit.GetRoutePoint(progressDistance + lookAheadForSpeedOffset + lookAheadForSpeedFactor*speed)
+                        circuit.GetRoutePoint(progressDistance + lookAheadForSpeedOffset + lookAheadForSpeedFactor * speed)
                                .direction);
 
 
@@ -106,7 +149,7 @@ namespace UnityStandardAssets.Utility
                 Vector3 progressDelta = progressPoint.position - transform.position;
                 if (Vector3.Dot(progressDelta, progressPoint.direction) < 0)
                 {
-                    progressDistance += progressDelta.magnitude*0.5f;
+                    progressDistance += progressDelta.magnitude * 0.5f;
                 }
 
                 lastPosition = transform.position;
@@ -118,7 +161,7 @@ namespace UnityStandardAssets.Utility
                 Vector3 targetDelta = target.position - transform.position;
                 if (targetDelta.magnitude < pointToPointThreshold)
                 {
-                    progressNum = (progressNum + 1)%circuit.Waypoints.Length;
+                    progressNum = (progressNum + 1) % circuit.Waypoints.Length;
                 }
 
 
