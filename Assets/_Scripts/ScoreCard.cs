@@ -67,7 +67,15 @@ public class ScoreCard : MonoBehaviour {
 
 	public int GetScore() {
 		if (trackFinished) {
-			return this.score - (Mathf.RoundToInt(this.timeInWrongLane)) - (Mathf.RoundToInt(this.timeAboveSpeed));
+            int score = this.score - (Mathf.RoundToInt(this.timeInWrongLane)) - (Mathf.RoundToInt(this.timeAboveSpeed));
+            if (score < 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return score;
+            }
 		} else {
 			return 0;
 		}

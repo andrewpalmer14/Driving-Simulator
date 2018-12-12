@@ -14,6 +14,7 @@ public class ReturntoTitle : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
         {
+            Destroy(GameObject.Find("ScoreCard"));
             SceneManager.LoadScene("Menu Scene");
         }
     }
